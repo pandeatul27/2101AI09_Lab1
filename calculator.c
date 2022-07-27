@@ -13,7 +13,8 @@ int square()
 {
     printf("Enter number :");
     int a;
-    return a*a;
+    scanf("%d", &a);
+    return a * a;
 }
 
 int multiply()

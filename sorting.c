@@ -105,6 +105,40 @@ void mergeSort(int a[], int start, int end)
         merge(a, start, mid, end);
     }
 }
+
+//Quick Sort
+int partition(int a[], int start, int end)
+{
+    int pivot = a[end];
+    int i = (start - 1);
+
+    for (int j = start; j <= end - 1; j++)
+    {
+        // If current element is smaller than the pivot swap with the elementat the ith position
+        if (a[j] < pivot)
+        {
+            i++;
+            int t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+        }
+    }
+    int t = a[i + 1];
+    a[i + 1] = a[end];
+    a[end] = t;
+    return (i + 1);
+}
+
+void quick(int a[], int start, int end) // start = Starting index, end = Ending index
+{
+    if (start < end)
+    {
+        int p = partition(a, start, end); // p is the partitioning index i.e. index of pivot
+        quick(a, start, p - 1);
+        quick(a, p + 1, end);
+    }
+}
+
 int main()
 {
     int n;
@@ -115,32 +149,42 @@ int main()
         scanf("%d", &a[i]);
     }
     insert(a, n);
-    printf("Sorted array by insertion sorting: \n");
+    printf("Sorted array by Insertion Sorting: \n");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
     printf("\n");
+
     selection(a, n);
-    printf("Sorted Array by selsction sorting:\n");
+    printf("Sorted Array by Selection Sorting:\n");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
     printf("\n");
+
     bubble(a, n);
-    printf("Sorted array by bubble sorting: \n");
+    printf("Sorted array by Bubble Sorting: \n");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
+    printf("\n");
 
     mergeSort(a, 0, n - 1);
-    printf("Sorted Array :\n");
+    printf("Sorted Array by Merge Sorting:\n");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", a[i]);
     }
     printf("\n");
+
+    quick(a, 0, n - 1);
+    printf("Sorted Array ny Quick Sorting:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
     return 0;
 }

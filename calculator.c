@@ -9,6 +9,13 @@ int add()
     return a + b;
 }
 
+int square()
+{
+    printf("Enter number :");
+    int a;
+    return a*a;
+}
+
 int multiply()
 {
     printf("Enter two numbers :");
@@ -49,7 +56,7 @@ double divide()
 
 int main()
 {
-    printf("Enter\n1 for addition \n2 for subtraction\n3 for multiplication\n4 for division\n5 for modulo\n");
+    printf("Enter\n1 for addition \n2 for subtraction\n3 for multiplication\n4 for division\n5 for modulo\n6 for Square\n");
     int x;
     scanf("%d", &x);
     switch (x)
@@ -65,6 +72,9 @@ int main()
         break;
     case 5:
         printf("Result : %d", modulo());
+        break;
+    case 6:
+        printf("Result : %d", square());
         break;
     default:
         printf("Result : %d", subtract());

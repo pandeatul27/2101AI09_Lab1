@@ -27,6 +27,15 @@ int subtract()
     scanf("%d", &b);
     return a - b;
 }
+int modulo()
+{
+    printf("Enter divident :");
+    int a, b;
+    scanf("%d", &a);
+    printf("Enter divisor :");
+    scanf("%d", &b);
+    return a % b;
+}
 
 double divide()
 {
@@ -40,7 +49,7 @@ double divide()
 
 int main()
 {
-    printf("Enter\n1 for addition \n2 for subtraction\n3 for multiplication\n4 for division\n");
+    printf("Enter\n1 for addition \n2 for subtraction\n3 for multiplication\n4 for division\n5 for modulo\n");
     int x;
     scanf("%d", &x);
     switch (x)
@@ -53,6 +62,9 @@ int main()
         break;
     case 4:
         printf("Result : %lf", divide());
+        break;
+    case 5:
+        printf("Result : %d", modulo());
         break;
     default:
         printf("Result : %d", subtract());

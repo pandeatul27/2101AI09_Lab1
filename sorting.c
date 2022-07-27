@@ -15,7 +15,25 @@ void insert(int a[], int n)
         a[j+1] = temp;    
     }  
 }  
+// Selection sort
+void selection(int arr[], int n)  
+{  
+    int small;  
+    for (int i = 0; i < n-1; i++) 
+    {  
+        small = i; 
+          
+        for (int j = i+1; j < n; j++)  
+         {
+            if (arr[j] < arr[small])  
+            small = j;  // storing minimum elment in a segment
+         }
   
+    int temp = arr[small];  
+    arr[small] = arr[i];  
+    arr[i] = temp;  
+    }  
+}  
 int main()  
 {  
      int n;
@@ -31,5 +49,12 @@ int main()
         {
             printf("%d ", a[i]); 
         } 
+    printf("\n");
+    selection(a, n);  
+    printf("Sorted Array :\n");    
+    for (int i = 0; i < n; i++)  
+       { 
+        printf("%d ", a[i]);  
+       }
     return 0;  
 }    
